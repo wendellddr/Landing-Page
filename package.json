@@ -1,0 +1,19 @@
+{
+  "name": "landing-pages-generator",
+  "version": "1.0.0",
+  "description": "Gerador de landing pages para produtos",
+  "main": "gerador.js",
+  "scripts": {
+    "gerar": "node gerador.js"
+  },
+  "keywords": [
+    "landing-page",
+    "amazon",
+    "affiliate"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "puppeteer": "^24.36.1"
+  }
+}

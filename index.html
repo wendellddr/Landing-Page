@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos Recomendados - Os Melhores Produtos com Ofertas Especiais</title>
+    <meta name="description" content="Descubra os melhores produtos com ofertas especiais. Produtos testados e aprovados com frete grátis e garantia. Compre com segurança na Amazon.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://produtosrecomendados.com.br">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Produtos Recomendados - Os Melhores Produtos com Ofertas Especiais">
+    <meta property="og:description" content="Descubra os melhores produtos com ofertas especiais. Produtos testados e aprovados com frete grátis e garantia.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://produtosrecomendados.com.br">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Produtos Recomendados",
+      "url": "https://produtosrecomendados.com.br",
+      "description": "Os melhores produtos com ofertas especiais e frete grátis"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .badges span {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero {
+            background: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-top: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .products-section {
+            padding: 3rem 0;
+        }
+        
+        .products-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #2d3748;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #f7fafc;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .stars {
+            color: #fbbf24;
+            font-size: 1.2rem;
+        }
+        
+        .product-price {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .price-current {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #e53e3e;
+        }
+        
+        .price-old {
+            font-size: 1rem;
+            text-decoration: line-through;
+            color: #718096;
+            margin-left: 0.5rem;
+        }
+        
+        .discount-badge {
+            display: inline-block;
+            background: #ff4444;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.75rem;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-top: 1rem;
+            transition: opacity 0.3s;
+        }
+        
+        .cta-button:hover {
+            opacity: 0.9;
+        }
+        
+        .features {
+            background: white;
+            padding: 3rem 0;
+            margin-top: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+        
+        .feature p {
+            color: #718096;
+        }
+        
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        footer p {
+            margin: 0.5rem 0;
+            opacity: 0.8;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🛍️ Produtos Recomendados</h1>
+            <p>Os Melhores Produtos com Ofertas Especiais</p>
+            <div class="badges">
+                <span>🔒 Compra 100% Segura</span>
+                <span>🚚 Frete Grátis</span>
+                <span>↩️ Devolução em 30 dias</span>
+                <span>✓ Produtos Testados</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Bem-vindo ao Produtos Recomendados</h2>
+            <p>Descubra produtos incríveis com ofertas especiais, frete grátis e garantia. Todos os produtos são testados e aprovados, com compra 100% segura através da Amazon.</p>
+        </div>
+    </section>
+
+    <section class="products-section">
+        <div class="container">
+            <h2>✨ Produtos em Destaque</h2>
+            
+            <div class="products-grid">
+                <!-- Produto: Balança Digital de Cozinha -->
+                <a href="/balanca-digital-cozinha-10kg" class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/51-YsblaRkL._AC_SX679_.jpg" 
+                         alt="Balança Digital de Cozinha, Até 10 kg" 
+                         class="product-image">
+                    <div class="product-info">
+                        <h3>Balança Digital de Cozinha, Até 10 kg</h3>
+                        <div class="product-rating">
+                            <span class="stars">★★★★½</span>
+                            <span>4.6 (318 avaliações)</span>
+                        </div>
+                        <p style="color: #718096; font-size: 0.9rem; margin-top: 0.5rem;">
+                            Alta Precisão de 1g | Função Tara | Display Digital | Pilhas Inclusas
+                        </p>
+                        <div class="product-price">
+                            <div>
+                                <span class="price-current">R$ 15,00</span>
+                                <span class="price-old">R$ 18,59</span>
+                            </div>
+                            <span class="discount-badge">-19% OFF</span>
+                        </div>
+                        <div class="cta-button">Ver Oferta Especial →</div>
+                    </div>
+                </a>
+                
+                <!-- Adicione mais produtos aqui conforme necessário -->
+                <!-- Exemplo de card vazio para quando adicionar mais produtos -->
+                <!--
+                <a href="/outro-produto" class="product-card">
+                    <img src="URL_DA_IMAGEM" alt="Nome do Produto" class="product-image">
+                    <div class="product-info">
+                        <h3>Nome do Produto</h3>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>4.8 (500 avaliações)</span>
+                        </div>
+                        <p style="color: #718096; font-size: 0.9rem; margin-top: 0.5rem;">
+                            Descrição breve do produto
+                        </p>
+                        <div class="product-price">
+                            <div>
+                                <span class="price-current">R$ 99,90</span>
+                                <span class="price-old">R$ 149,90</span>
+                            </div>
+                            <span class="discount-badge">-33% OFF</span>
+                        </div>
+                        <div class="cta-button">Ver Oferta Especial →</div>
+                    </div>
+                </a>
+                -->
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem;">🎯 Por Que Escolher Nossos Produtos?</h2>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Compra 100% Segura</h3>
+                    <p>Todas as compras são realizadas através do site oficial da Amazon, com garantia total de segurança e proteção.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Frete Grátis</h3>
+                    <p>Produtos selecionados com frete grátis para todo o Brasil, facilitando sua compra.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Produtos Testados</h3>
+                    <p>Apenas produtos com excelentes avaliações e altamente recomendados pelos clientes.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">💰</div>
+                    <h3>Ofertas Especiais</h3>
+                    <p>Preços especiais e descontos exclusivos para você economizar na sua compra.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">↩️</div>
+                    <h3>Devolução Garantida</h3>
+                    <p>Política de devolução em até 30 dias, garantindo sua satisfação total.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Entrega Rápida</h3>
+                    <p>Produtos com entrega rápida e rastreamento em tempo real.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>Produtos Recomendados</strong></p>
+            <p>Os melhores produtos com ofertas especiais e frete grátis</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
+                Página informativa | Compras realizadas no site oficial da Amazon.com.br
+            </p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.6;">
+                Esta página contém links de afiliados da Amazon. 
+                Ao comprar através dos links, você não paga nada a mais, mas ajuda a manter este site.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
